@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correlación de Activos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Correlación de Activos</h1>
+
+        <div class="input-group">
+            <label for="activo1">Activo 1</label>
+            <input type="text" id="activo1" oninput="mostrarSegundoActivo()">
+        </div>
+
+        <div class="input-group" id="activo2-group" style="display: none;">
+            <label for="activo2">Activo 2</label>
+            <input type="text" id="activo2" oninput="mostrarComparacion()">
+        </div>
+
+        <p id="comparacion" class="message"></p>
+
+        <div id="tabla-container" style="display: none;">
+            <table class="correlation-table">
+                <thead>
+                    <tr>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha Final</th>
+                        <th>Días de Correlación</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="correlation-tbody">
+                    <tr>
+                        <td><input type="date" class="fecha1" onchange="calcularDias(this)"></td>
+                        <td><input type="date" class="fecha2" onchange="calcularDias(this)"></td>
+                        <td class="dias-correlacionados"></td>
+                        <td><button class="delete-row-button" onclick="eliminarFila(this)">🗑️</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="buttons-container">
+                <button class="add-row-button" onclick="agregarFila()">+ Fechas</button>
+                <button class="reset-button" onclick="reiniciarTabla()">Reiniciar</button>
+            </div>
+        </div>
+
+        <p id="promedioDias" class="message"></p>
+        <p id="mensajeCorrelacion" class="message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,167 @@
+:root {
+    --apple-blue: #007aff;
+    --light-background: #ffffff;
+    --light-text: #000000;
+    --dark-background: #1c1c1e;
+    --dark-text: #ffffff;
+    --dark-input-background: #333;
+    --dark-row-background: #2c2c2e;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--light-background);
+    color: var(--light-text);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    flex-direction: column;
+    padding: 20px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-background);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: var(--light-background);
+    color: var(--light-text);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    background-color: var(--light-text);
+    color: var(--light-background);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: var(--apple-blue);
+    color: var(--light-background);
+}
+
+.reset-button, .add-row-button, .delete-row-button {
+    background-color: var(--light-text);
+    color: var(--light-background);
+}
+
+.delete-row-button {
+    font-size: 0.8em;
+}
+
+.message {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.correlation-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.correlation-table th, .correlation-table td {
+    padding: 8px;
+    text-align: center;
+}
+
+.correlation-table td input[type="date"] {
+    width: 90%;
+    margin: 0;
+}
+
+.correlation-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.dark-mode .correlation-table tr:nth-child(even) {
+    background-color: var(--dark-row-background);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dark-mode {
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+}
+
+.dark-mode .container {
+    background-color: var(--dark-background);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode input[type="text"], .dark-mode input[type="date"] {
+    background-color: var(--dark-input-background);
+    color: var(--dark-text);
+    border: 1px solid #777;
+}
+
+.dark-mode button {
+    background-color: var(--dark-text);
+    color: var(--dark-background);
+}
+
+.dias-correlacionados[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background: var(--light-background);
+    color: var(--light-text);
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    top: -25px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .dias-correlacionados[data-tooltip]:hover::after {
+    background: var(--dark-background);
+    color: var(--dark-text);
+}
+
+.dias-correlacionados {
+    position: relative;
+}
+
